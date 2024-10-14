@@ -1,5 +1,5 @@
 <!--pages/home/home.wxml-->
-<!--轮播图区-->
+<!--轮播图区1111111111-->
 <swiper indicator-dots="{{indicators}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular>
   <block wx:for="{{imageUrl}}" wx:key="index">
     <swiper-item>
