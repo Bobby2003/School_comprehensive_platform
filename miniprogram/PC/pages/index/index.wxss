@@ -1,1 +1,32 @@
 /* PC/pages/index/index.wxss */
+/* PC/pages/index/index.wxss */
+/* PC/pages/index/index.wxss */
+.container {
+  padding: 10px;
+}
+
+.table-row {
+  display: flex;
+}
+
+.table-cell {
+  border: 1px solid #ccc;
+  padding: 1px; /* 增大内边距以扩大格子大小 */
+  flex: 1;
+  text-align: center;
+  min-width: 10px; /* 设置最小宽度 */
+  height: 25px; /* 设置高度 */
+}
+
+.hour-cell {
+  background-color: blue; /* 第一列颜色为蓝色 */
+  color: white; /* 文字颜色为白色 */
+}
+
+.table-cell:not(.hour-cell) {
+  cursor: pointer; /* 使其他格子可点击 */
+}
+
+.table-cell:hover {
+  background-color: lightgray; /* 鼠标悬停效果 */
+}

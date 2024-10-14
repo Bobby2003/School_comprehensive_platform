@@ -1,66 +1,39 @@
 // PC/pages/index/index.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    timeTable: []
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
+  onLoad() {
+    this.generateTimeTable();
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
+  generateTimeTable() {
+    const rows = 22; // 行数
+    const columns = 13; // 列数
+    const timePoints = [];
 
+    for (let rowIndex = 8; rowIndex < rows; rowIndex++) {
+      const row = [];
+      const hour = String(rowIndex).padStart(2, '0'); // 获取小时
+
+      row.push(hour); // 在第一列添加小时
+
+      for (let columnIndex = 0; columnIndex < columns; columnIndex++) {
+        const minute = String(columnIndex * 5).padStart(2, '0'); // 每列5分钟
+        row.push(minute); // 添加分钟到行
+      }
+      timePoints.push(row);
+    }
+
+    console.log(timePoints);
+    this.setData({ timeTable: timePoints });
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  handleCellClick(event) {
+    const { rowIndex, columnIndex } = event.currentTarget.dataset;
+    const minute = this.data.timeTable[rowIndex][columnIndex];
+    console.log(`Clicked on: Hour ${this.data.timeTable[rowIndex][0]}, Minute ${minute}`);
+    // 在这里可以添加更多的逻辑，例如导航或弹出框等
   }
-})
+});

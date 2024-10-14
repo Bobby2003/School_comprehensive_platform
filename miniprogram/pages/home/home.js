@@ -111,7 +111,7 @@ Page({
     if(event.currentTarget.dataset.hi==0){
       console.log("yes")
       wx.navigateTo({
-        url: '../../PC/pages/home_PC/home_PC'
+        url: '../../PC/pages/index/index'
       });
     }else if(event.currentTarget.dataset.hi==1){
       console.log("yes")
